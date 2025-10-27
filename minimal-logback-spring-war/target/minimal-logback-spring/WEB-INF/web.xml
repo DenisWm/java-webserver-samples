@@ -1,0 +1,49 @@
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" version="6.0" metadata-complete="false">
+    <display-name>minimal-logback-spring</display-name>
+
+    <!-- Bootstraps the root Spring context -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- Use Java-based config -->
+    <context-param>
+        <param-name>contextClass</param-name>
+        <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>com.sample.minimal.config.AppConfig</param-value>
+    </context-param>
+
+    <!-- Spring MVC DispatcherServlet for /api/* -->
+    <servlet>
+        <servlet-name>app</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>com.sample.minimal.config.AppConfig</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>app</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Plain servlet that uses Spring context -->
+    <servlet>
+        <servlet-name>simple</servlet-name>
+        <servlet-class>com.sample.minimal.SimpleServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>simple</servlet-name>
+        <url-pattern>/simple</url-pattern>
+    </servlet-mapping>
+</web-app>

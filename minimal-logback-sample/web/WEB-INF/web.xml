@@ -1,0 +1,11 @@
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" version="6.0" metadata-complete="true">
+    <servlet>
+        <servlet-name>minimal</servlet-name>
+        <servlet-class>com.sample.minimal.MinimalServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>minimal</servlet-name>
+        <url-pattern>/minimal</url-pattern>
+    </servlet-mapping>
+</web-app>

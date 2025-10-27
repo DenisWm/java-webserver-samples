@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="stax2-api-4.2.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/target/provided-libs/stax2-api-4.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/provided-libs/slf4j-api-2.0.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/provided-libs/woodstox-core-6.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/provided-libs/jakarta.servlet-api-6.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/provided-libs/jackson-dataformat-xml-2.17.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/provided-libs/jackson-databind-2.17.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/provided-libs/jackson-core-2.17.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/provided-libs/jackson-annotations-2.17.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

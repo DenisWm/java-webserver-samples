@@ -1,0 +1,34 @@
+<!--<configuration>-->
+<!--    <appender name="ACCESS_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${catalina.base}/logs/access.log</file>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${catalina.base}/logs/access.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+<!--            <maxHistory>14</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>-->
+<!--            <pattern>%h %l %u [%t] "%r" %s %b %D</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+<!--    <appender-ref ref="ACCESS_FILE"/>-->
+<!--</configuration>-->
+
+<configuration>
+    <appender name="classic" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%h %l %u [%t] "%r" %s %b %D</pattern>
+        </encoder>
+    </appender>
+    <appender name="access_file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/access.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/access.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>14</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%h %l %u [%t] "%r" %s %b %D</pattern>
+        </encoder>
+    </appender>
+    <appender-ref ref="classic"/>
+    <appender-ref ref="access_file"/>
+</configuration>

@@ -1,0 +1,39 @@
+<configuration scan="true" scanPeriod="30 seconds" debug="false">
+    <!-- Console (ideal para Docker/K8s) -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger{100} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- (Opcional) Async para não bloquear a app -->
+    <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="CONSOLE"/>
+        <includeCallerData>false</includeCallerData>
+    </appender>
+
+    <!-- ===== NÍVEIS PARA ENXERGAR O BOOT DO SPRING MVC ===== -->
+    <!-- Contexto + criação de beans -->
+    <logger name="org.springframework.context" level="DEBUG"/>
+    <logger name="org.springframework.beans" level="DEBUG"/>
+    <logger name="org.springframework.core" level="DEBUG"/>
+
+    <!-- Web MVC em geral (DispatcherServlet, HandlerMappings/Adapters, Views) -->
+    <logger name="org.springframework.web" level="DEBUG"/>
+    <logger name="org.springframework.web.servlet" level="DEBUG"/>
+    <logger name="org.springframework.web.servlet.DispatcherServlet" level="DEBUG"/>
+    <logger name="org.springframework.web.servlet.handler" level="DEBUG"/>
+    <logger name="org.springframework.web.servlet.view" level="DEBUG"/>
+
+    <!-- Mapeamentos de @RequestMapping (coloque TRACE para ver cada método mapeado) -->
+    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="TRACE"/>
+    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" level="DEBUG"/>
+
+    <!-- Seus pacotes -->
+    <logger name="com.sample.minimal" level="DEBUG"/>
+
+    <!-- Raiz: mantenha INFO para não “inundar” tudo -->
+    <root level="INFO">
+        <appender-ref ref="ASYNC"/>
+    </root>
+</configuration>
